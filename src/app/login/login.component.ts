@@ -25,16 +25,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-  //   this.authService
-  //   .tentarLogar(this.username, this.password)
-  //   .subscribe(response =>
-  //     {const access_token = JSON.stringify(response);
-  //       localStorage.setItem('access_token', access_token);//variável global
-  //       this.router.navigate(['/home'])
-  //   }
-  //     , errorResponse => {
-  //       this.errors = ['Usuário e/ou senha incorreto(s).']
-  //     })
+    this.authService
+    .tentarLogar(this.username, this.password)
+    .subscribe(response =>
+      {const access_token = JSON.stringify(response);
+        localStorage.setItem('access_token', access_token);//variável global
+        this.router.navigate(['/home'])
+    }
+      , errorResponse => {
+        this.errors = ['Usuário e/ou senha incorreto(s).']
+      })
   }
 
   preparaCadastrar(event){
@@ -47,19 +47,19 @@ export class LoginComponent implements OnInit {
   }
 
   cadastrar() {
-    // const usuario: Usuario = new Usuario();
-    // usuario.username = this.username;
-    // usuario.password = this.password;
-    // this.authService.salvar(usuario).subscribe( response => {
-    //   this.mensagemSucesso = "Cadastro realizado com sucesso! Efetue o login.";
-    //   this.cadastrando = false;
-    //   this.username = '';
-    //   this.password = '';
-    //   this.errors = [];
-    // }, errorResponse => {
-    //   this.mensagemSucesso = null;
-    //   this.errors = errorResponse.error.errors;
-    // })
+    const usuario: Usuario = new Usuario();
+    usuario.username = this.username;
+    usuario.password = this.password;
+    this.authService.salvar(usuario).subscribe( response => {
+      this.mensagemSucesso = "Cadastro realizado com sucesso! Efetue o login.";
+      this.cadastrando = false;
+      this.username = '';
+      this.password = '';
+      this.errors = [];
+    }, errorResponse => {
+      this.mensagemSucesso = null;
+      this.errors = errorResponse.error.errors;
+    })
   }
 
 }
