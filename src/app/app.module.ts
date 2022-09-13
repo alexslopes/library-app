@@ -9,18 +9,22 @@ import { AuthService } from './auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
 import { HomeComponent } from './home/home.component';
+import { LayoutComponent } from './layout/layout.component';
+import { TemplateModule } from './template/template.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TemplateModule
   ],
   providers: [
     AuthService,
