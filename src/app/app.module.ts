@@ -11,6 +11,7 @@ import { TokenInterceptor } from './token.interceptor';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TemplateModule } from './template/template.module';
+import { StudentModule } from './student/student.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TemplateModule } from './template/template.module';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    TemplateModule
+    TemplateModule,
+    StudentModule
   ],
   providers: [
     AuthService,
