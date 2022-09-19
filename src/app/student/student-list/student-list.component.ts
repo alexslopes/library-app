@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StudentService } from 'src/app/student.service';
-import { Student } from '../student';
+import { Usuario } from '../usuario';
 
 @Component({
   selector: 'app-student-list',
@@ -10,8 +10,8 @@ import { Student } from '../student';
 })
 export class StudentListComponent implements OnInit {
 
-  students: Student[] = [];
-  studentSelecionado: Student;
+  students: Usuario[] = [];
+  studentSelecionado: Usuario;
   mensagemSucess: string;
   mensagemErro: string;
   totalElementos: number;
@@ -29,7 +29,7 @@ export class StudentListComponent implements OnInit {
     this.router.navigate(['/student/form'])
   }
 
-  preparaDelecao(student: Student) {
+  preparaDelecao(student: Usuario) {
     this.studentSelecionado = student;
   }
 
@@ -43,8 +43,13 @@ export class StudentListComponent implements OnInit {
   }
 
   deleteStudent() {
-    throw new Error('Method not implemented.');
-    }
+    this.service.delete(this.studentSelecionado).
+    subscribe(
+      response => {this.mensagemSucess = 'Aluno deletado com sucesso!'
+      this.ngOnInit()
+      },
+      error => this.mensagemErro = 'Ocorreu um erro ao deletar o aluno')
+  }
 
 
 }

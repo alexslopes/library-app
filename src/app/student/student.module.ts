@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentRoutingModule } from './student-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { StudentRoutingModule } from './student-routing.module';
   ],
   imports: [
     CommonModule,
-    StudentRoutingModule
+    StudentRoutingModule,
+    FormsModule
   ],
   exports: [
     StudentFormComponent,

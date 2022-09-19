@@ -26,7 +26,8 @@ import { StudentModule } from './student/student.module';
     HttpClientModule,
     AppRoutingModule,
     TemplateModule,
-    StudentModule
+    StudentModule,
+    FormsModule
   ],
   providers: [
     AuthService,

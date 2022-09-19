@@ -1,7 +1,7 @@
-import { Student } from "./student";
+import { Usuario } from "./usuario";
 
 export class StudentPage {
-  content: Student[];
+  content: Usuario[];
   totalElements: number;
   size: number;
   number: number;
