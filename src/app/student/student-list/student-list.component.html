@@ -50,6 +50,12 @@
             </tr>
         </tbody>
       </table>
+
+       <mat-paginator [length]="totalElementos"
+              [pageSize]="tamanho"
+              (page)="listStudents($event.pageIndex, 10)"
+              aria-label="Select page">
+      </mat-paginator>
     </div>
   </div>
 

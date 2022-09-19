@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { StudentService } from 'src/app/student.service';
 import { Usuario } from '../usuario';
@@ -16,6 +17,8 @@ export class StudentListComponent implements OnInit {
   mensagemErro: string;
   totalElementos: number;
   pagina: number;
+  pageEvent: PageEvent;
+  tamanho: number;
 
   constructor(
     private service: StudentService,
@@ -39,6 +42,7 @@ export class StudentListComponent implements OnInit {
       this.students = response.content;
       this.totalElementos = response.totalElements;
       this.pagina = response.number;
+      this.tamanho = response.size;
     })
   }
 
