@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
+import { Usuario } from 'src/app/login/usuario';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,7 +10,8 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class SidebarComponent implements OnInit {
 
-  usuarioLogado: string;
+  authorities: string[];
+  usuarioLogado: Usuario;
 
   constructor(
     private autService: AuthService,
@@ -17,12 +19,21 @@ export class SidebarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.usuarioLogado = this.autService.getUsuarioAutenticado();
+    this.authorities = this.autService.getAuthorities();
+    this.obterDadosdoUsuario()
   }
 
   logout() {
     this.autService.encerrarSessao();
     this.router.navigate(['/login'])
+  }
+
+  obterDadosdoUsuario() {
+    this.autService.obterDadosdaConta().subscribe(
+      response => {
+        this.usuarioLogado = response;
+      }
+    );
   }
 
 }

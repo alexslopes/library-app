@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
   cadastrar() {
     const usuario: Usuario = new Usuario();
-    usuario.username = this.username;
+    usuario.login = this.username;
     usuario.password = this.password;
     this.authService.salvar(usuario).subscribe( response => {
       this.mensagemSucesso = "Cadastro realizado com sucesso! Efetue o login.";

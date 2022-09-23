@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiURLBase: 'http://localhost:8081',
-  clientId: 'student-app',
+  clientId: 'library-app',
   clientSecret: '@321',
   obterTokenUrl: '/oauth/token'
 };

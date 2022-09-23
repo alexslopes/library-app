@@ -1,4 +1,7 @@
 export class Usuario {
-  username: string;
+  id: number;
+  name: string;
+  login: string;
   password: string;
+  roles: [];
 }

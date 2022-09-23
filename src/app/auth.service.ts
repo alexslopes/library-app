@@ -37,7 +37,17 @@ export class AuthService {
     const token = this.obterToken();
     if(token){
       const usuario = this.jwtHelper.decodeToken(token).user_name;
+      console.log(this.jwtHelper.decodeToken(token));
       return usuario;
+    }
+    return null;
+  }
+
+  getAuthorities(){
+    const token = this.obterToken();
+    if(token){
+      const authorities = this.jwtHelper.decodeToken(token).authorities;
+      return authorities;
     }
     return null;
   }
@@ -66,5 +76,9 @@ export class AuthService {
       'Content-Type' : 'application/x-www-form-urlencoded'
     }
     return this.http.post(this.tokenURL, params.toString(), { headers}); //quando o nome do valor é igual a propriedade, pode-se omitir o valor ex.(header:header} -> {header}
+  }
+
+  obterDadosdaConta() : Observable<any> {
+    return this.http.get<any>(this.apiUrl + "/obter-dados-conta");
   }
 }
