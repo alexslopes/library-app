@@ -17,12 +17,12 @@
       </div>
 
       <div class="row" *ngIf="student.id">
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
           <div class="form-group">
             <label>ID:</label>
             <input type="text" [ngModel]="student.id" name="id" class="form-control" disabled="true"/>
           </div>
-        </div>
+        </div> -->
 
         <!-- <div class="col-md-6">
           <div class="form-group">
@@ -52,7 +52,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Password: *</label>
-            <input type="text" class="form-control" [(ngModel)]="student.password" name="password"/>
+            <input type="password" class="form-control" [(ngModel)]="student.password" value="student.password " name="password">
           </div>
         </div>
 

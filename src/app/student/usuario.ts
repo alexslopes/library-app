@@ -3,5 +3,5 @@ export class Usuario {
   name: string;
   login: string;
   password: string;
-  roleId: number;
+  rolesId: Array<number>;
 }

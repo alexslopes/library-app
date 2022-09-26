@@ -35,8 +35,6 @@ export class StudentFormComponent implements OnInit {
 
     })
 
-    this.student.roleId = 2;
-
     console.log(this.student.name)
   }
 
@@ -49,6 +47,10 @@ export class StudentFormComponent implements OnInit {
   }
 
   onSubmit() {
+    let studentTosave = this.student;
+    studentTosave.rolesId = new Array<number>;
+    studentTosave.rolesId.push(2);
+
     if(this.id) {
       this.service.atualizar(this.student)
       .subscribe( response =>
@@ -59,7 +61,7 @@ export class StudentFormComponent implements OnInit {
       })
     } else {
 
-    this.service.salvar(this.student).subscribe(
+    this.service.salvar(studentTosave).subscribe(
       (response) => { this.success = true;
         this.errors = null;
         this.student = response;
