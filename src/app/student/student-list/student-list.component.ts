@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { StudentService } from 'src/app/student.service';
+import { AdminStudentService } from 'src/app/admin-student.service';
 import { Usuario } from '../usuario';
 
 @Component({
@@ -21,7 +21,7 @@ export class StudentListComponent implements OnInit {
   tamanho: number;
 
   constructor(
-    private service: StudentService,
+    private service: AdminStudentService,
     private router: Router) {}
 
   ngOnInit(): void {

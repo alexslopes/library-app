@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AdminStudentService } from 'src/app/admin-student.service';
 import { StudentService } from 'src/app/student.service';
 import { Usuario } from '../usuario';
 
@@ -16,7 +17,8 @@ export class StudentFormComponent implements OnInit {
   errors: String[];
   id: number;
 
-  constructor( private service: StudentService,
+  constructor( private studentService: StudentService,
+               private adminService: AdminStudentService,
                private router: Router,
                private activatedRoute: ActivatedRoute ) {
     this.student = new Usuario();
@@ -27,7 +29,7 @@ export class StudentFormComponent implements OnInit {
     params.subscribe( urlParams => {
       this.id = urlParams['id'];
       if(this.id) {
-        this.service.getStudentById(this.id)
+        this.studentService.getStudentById(this.id)
         .subscribe(
           response => this.student = response,
           errorresponse => this.student = new Usuario())
@@ -52,7 +54,7 @@ export class StudentFormComponent implements OnInit {
     studentTosave.rolesId.push(2);
 
     if(this.id) {
-      this.service.atualizar(this.student)
+      this.adminService.atualizar(this.student)
       .subscribe( response =>
         {this.success = true;
         this.errors = null;
@@ -61,7 +63,7 @@ export class StudentFormComponent implements OnInit {
       })
     } else {
 
-    this.service.salvar(studentTosave).subscribe(
+    this.adminService.salvar(studentTosave).subscribe(
       (response) => { this.success = true;
         this.errors = null;
         this.student = response;
