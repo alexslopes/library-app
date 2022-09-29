@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TemplateModule } from './template/template.module';
 import { StudentModule } from './student/student.module';
+import { BookModule } from './book/book.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { StudentModule } from './student/student.module';
     AppRoutingModule,
     TemplateModule,
     StudentModule,
+    BookModule,
     FormsModule
   ],
   providers: [
