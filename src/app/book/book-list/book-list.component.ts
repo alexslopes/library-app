@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { AdminBookService } from 'src/app/admin-book.service';
+import { AdminBookService } from 'src/app/service/admin-book.service';
 import { Book } from '../book';
 
 @Component({

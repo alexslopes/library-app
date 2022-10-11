@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { AdminStudentService } from 'src/app/admin-student.service';
+import { AdminStudentService } from 'src/app/service/admin-student.service';
 import { Usuario } from '../usuario';
 
 @Component({

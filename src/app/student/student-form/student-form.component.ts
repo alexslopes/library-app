@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AdminStudentService } from 'src/app/admin-student.service';
-import { StudentService } from 'src/app/student.service';
+import { AdminStudentService } from 'src/app/service/admin-student.service';
+import { StudentService } from 'src/app/service/student.service';
 import { Usuario } from '../usuario';
 
 @Component({
