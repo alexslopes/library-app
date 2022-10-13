@@ -6,6 +6,9 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookFormComponent } from './book-form/book-form.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     MatPaginatorModule,
     FormsModule,
-    BookRoutingModule
+    BookRoutingModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    NgSelectModule
   ]
 })
 export class BookModule { }

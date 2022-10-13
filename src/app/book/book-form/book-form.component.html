@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="alert alert-success" role="alert" *ngIf="success == true">
-            Cliente salvo/atualizado com sucesso!
+            Módulo salvo/atualizado com sucesso!
           </div>
           <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
             {{ error }}
@@ -27,7 +27,9 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Idioma: *</label>
-            <input type="text" class="form-control" [(ngModel)]="book.languageIdentification" name="languageIdentification"/>
+            <ng-select [(ngModel)]="languageSelected" name="language">
+              <ng-option *ngFor="let language of languages" [value]="language.id">{{language.description}}</ng-option>
+           </ng-select>
           </div>
         </div>
       </div>
