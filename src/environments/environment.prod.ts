@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiURLBase: 'http://localhost:8081',
+  apiURLBase: 'https://cabidiomas-library-api.herokuapp.com',
   clientId: 'library-app',
   clientSecret: '@321',
   obterTokenUrl: '/oauth/token'
