@@ -23,7 +23,9 @@
     "@auth0/angular-jwt": "^5.0.2",
     "@ng-select/ng-select": "^9.0.2",
     "bootstrap": "^5.2.1",
+    "express": "^4.18.2",
     "jquery": "^3.6.1",
+    "path": "^0.12.7",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
