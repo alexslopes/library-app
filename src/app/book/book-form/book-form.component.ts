@@ -34,12 +34,12 @@ export class BookFormComponent implements OnInit {
     let params: Observable<Params> = this.activatedRoute.params;
     params.subscribe(urlParams => {
       this.id = urlParams['id'];
-      // if (this.id) {
-      //   this.bookService.getBookById(this.id)
-      //     .subscribe(
-      //       response => this.book = response,
-      //       errorresponse => this.book = new Book())
-      // }
+      if (this.id) {
+        this.bookService.getBookById(this.id)
+          .subscribe(
+            response => this.book = response,
+            errorresponse => this.book = new Book())
+      }
 
       this.languageService.getAllLanguage()
         .subscribe(
