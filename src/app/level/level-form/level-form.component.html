@@ -1,6 +1,6 @@
 <h1 class="mt-4">Conta</h1>
 <ol class="breadcrumb mb-4">
-  <li class="breadcrumb-item active">{{ book.id ? 'Edição' : 'Cadastro'}}</li>
+  <li class="breadcrumb-item active">{{ level.id ? 'Edição' : 'Cadastro'}}</li>
 </ol>
 <div class="container">
   <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
@@ -20,7 +20,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Nome: *</label>
-            <input type="text" class="form-control" [(ngModel)]="book.description" name="name"/>
+            <input type="text" class="form-control" [(ngModel)]="level.description" name="name"/>
           </div>
         </div>
 
@@ -36,11 +36,11 @@
 
       <div class="row">
         <div class="col-md-3">
-          <button type="submit" class="btn btn-success" *ngIf="!book.id">
+          <button type="submit" class="btn btn-success" *ngIf="!level.id">
             <i class="fa fa-save"></i> Salvar
           </button>
 
-          <button type="submit" class="btn btn-primary" *ngIf="book.id">
+          <button type="submit" class="btn btn-primary" *ngIf="level.id">
             <i class="fa fa-sync-alt"></i> Atualizar
           </button>
 

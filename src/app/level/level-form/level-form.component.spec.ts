@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BookFormComponent } from './book-form.component';
+import { LevelFormComponent } from './level-form.component';
 
 describe('BookFormComponent', () => {
-  let component: BookFormComponent;
-  let fixture: ComponentFixture<BookFormComponent>;
+  let component: LevelFormComponent;
+  let fixture: ComponentFixture<LevelFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BookFormComponent ]
+      declarations: [ LevelFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BookFormComponent);
+    fixture = TestBed.createComponent(LevelFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

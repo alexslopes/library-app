@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BookRoutingModule } from './book-routing.module';
-import { BookListComponent } from './book-list/book-list.component';
-import { BookFormComponent } from './book-form/book-form.component';
+import { LevelRoutingModule } from './level-routing.module';
+import { LevelListComponent } from './level-list/level-list.component';
+import { LevelFormComponent } from './level-form/level-form.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
@@ -15,18 +15,18 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
-    BookListComponent,
-    BookFormComponent
+    LevelListComponent,
+    LevelFormComponent
   ],
   imports: [
     CommonModule,
     MatPaginatorModule,
     FormsModule,
-    BookRoutingModule,
+    LevelRoutingModule,
     MatSelectModule,
     BrowserAnimationsModule,
     AngularEditorModule,
     NgSelectModule
   ]
 })
-export class BookModule { }
+export class LevelModule { }

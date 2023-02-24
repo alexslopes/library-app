@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { AdminBookService } from 'src/app/service/admin-book.service';
-import { Book } from '../book';
+import { AdminLevelService } from 'src/app/service/admin-level.service';
+import { Level } from '../level';
 
 @Component({
-  selector: 'app-book-list',
-  templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  selector: 'app-level-list',
+  templateUrl: './level-list.component.html',
+  styleUrls: ['./level-list.component.css']
 })
-export class BookListComponent implements OnInit {
+export class LevelListComponent implements OnInit {
 
-  books: Book[] = [];
-  bookSelecionado: Book;
+  levels: Level[] = [];
+  bookSelecionado: Level;
   mensagemSucess: string;
   mensagemErro: string;
   totalElementos: number;
@@ -21,7 +21,7 @@ export class BookListComponent implements OnInit {
   tamanho: number;
 
   constructor(
-    private service: AdminBookService,
+    private service: AdminLevelService,
     private router: Router) {}
 
   ngOnInit(): void {
@@ -29,17 +29,17 @@ export class BookListComponent implements OnInit {
   }
 
   novoCadastro() {
-    this.router.navigate(['/book/form'])
+    this.router.navigate(['/level/form'])
   }
 
-  preparaDelecao(book: Book) {
-    this.bookSelecionado = book;
+  preparaDelecao(level: Level) {
+    this.bookSelecionado = level;
   }
 
   listBooks(pagina = 0, tamanho = 10){
     this.service.list(pagina, tamanho, 1).subscribe(response =>  {
       console.log(response);
-      this.books = response.content;
+      this.levels = response.content;
       this.totalElementos = response.totalElements;
       this.pagina = response.number;
       this.tamanho = response.size;

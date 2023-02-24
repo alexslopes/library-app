@@ -32,15 +32,15 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of books">
-              <td>{{ book.description }}</td>
+            <tr *ngFor="let level of levels">
+              <td>{{ level.description }}</td>
               <td>
                 <button class="btn btn-primary"
-                   routerLink="/book/form/{{book.id}}">
+                   routerLink="/level/form/{{level.id}}">
                   <i class="fa fa-edit"></i>
                 </button>
 
-                <button class="btn btn-danger" (click)="preparaDelecao(book)"
+                <button class="btn btn-danger" (click)="preparaDelecao(level)"
                 data-bs-toggle="modal" data-bs-target="#modalDelecao">
                   <i class="fa fa-trash"></i>
                 </button>

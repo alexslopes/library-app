@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { TemplateModule } from './template/template.module';
 import { StudentModule } from './student/student.module';
-import { BookModule } from './book/book.module';
+import { LevelModule } from './level/level.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { BookModule } from './book/book.module';
     AppRoutingModule,
     TemplateModule,
     StudentModule,
-    BookModule,
+    LevelModule,
     FormsModule
   ],
   providers: [
