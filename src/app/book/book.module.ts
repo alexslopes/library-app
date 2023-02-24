@@ -10,6 +10,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
 
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     BookRoutingModule,
     MatSelectModule,
     BrowserAnimationsModule,
+    AngularEditorModule,
     NgSelectModule
   ]
 })

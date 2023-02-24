@@ -6,6 +6,7 @@ import { AdminBookService } from 'src/app/service/admin-book.service';
 import { BookService } from 'src/app/service/book.service';
 import { LanguageService } from 'src/app/service/language.service';
 import { Book } from '../book';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-book-form',
@@ -88,6 +89,37 @@ export class BookFormComponent implements OnInit {
         })
     }
   }
+
+  htmlContent = "";
+
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    toolbarHiddenButtons: [
+      ['bold']
+      ],
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ]
+  };
 
   print(event){
     console.log(event);
