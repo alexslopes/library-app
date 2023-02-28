@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Book } from '../level/book/book';
 import { Level } from '../level/level';
 import { LevelPage } from '../level/levelPage';
 
@@ -25,11 +26,11 @@ export class AdminLevelService {
     return this.http.delete<any>(`${this.apiURL}/${level.id}`);
   }
 
-  salvar(level: Level) : Observable<Level>{
-    return this.http.post<Level>(`${this.apiURL}`,level);
+  salvar(book: Book) : Observable<Book>{
+    return this.http.post<Book>(`${this.apiURL}`,book);
   }
 
-  atualizar(level: Level) : Observable<any> {
-    return this.http.put<Level>(`${this.apiURL}/${level.id}`,level);
+  atualizar(book: Book) : Observable<any> {
+    return this.http.put<Book>(`${this.apiURL}/${book.level.id}`,book);
   }
 }

@@ -7,6 +7,7 @@ import { LevelService } from 'src/app/service/level.service';
 import { LanguageService } from 'src/app/service/language.service';
 import { Level } from '../level';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { Book } from '../book/book';
 
 @Component({
   selector: 'app-level-form',
@@ -16,11 +17,13 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 export class LevelFormComponent implements OnInit {
 
   level: Level;
+  book: Book;
   success: boolean = false;
   errors: String[];
   id: number;
   languages: Language[];
   languageSelected: number;
+  htmlContent: string = "";
 
 
   constructor(private levelService: LevelService,
@@ -29,6 +32,7 @@ export class LevelFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private languageService: LanguageService) {
     this.level = new Level();
+    this.book = new Book();
   }
 
   ngOnInit(): void {
@@ -38,8 +42,11 @@ export class LevelFormComponent implements OnInit {
       if (this.id) {
         this.levelService.getBookById(this.id)
           .subscribe(
-            response => this.level = response,
-            errorresponse => this.level = new Level())
+            response =>{
+              this.level = response.level,
+              this.htmlContent = response.content
+            },
+              errorresponse => this.level = new Level())
       }
 
       this.languageService.getAllLanguage()
@@ -53,11 +60,11 @@ export class LevelFormComponent implements OnInit {
 
     })
 
-    console.log(this.level.description)
+    console.log(this.book)
   }
 
   voltarParaListagem() {
-    this.router.navigate(['/level /lista'])
+    this.router.navigate(['/level/lista'])
   }
 
   clicar() {
@@ -67,9 +74,10 @@ export class LevelFormComponent implements OnInit {
   onSubmit() {
     this.level.languageId = this.languageSelected;
     console.log(this.languageSelected);
+    var book = this.createBook(this.htmlContent, this.level);
 
     if (this.id) {
-      this.adminService.atualizar(this.level)
+      this.adminService.atualizar(book)
         .subscribe(response => {
           this.success = true;
           this.errors = null;
@@ -78,19 +86,17 @@ export class LevelFormComponent implements OnInit {
         })
     } else {
 
-      this.adminService.salvar(this.level).subscribe(
+      this.adminService.salvar(book).subscribe(
         (response) => {
           this.success = true;
           this.errors = null;
-          this.level = response;
+          this.level = response.level;
         }, errorResponse => {
           this.success = false;
           this.errors = errorResponse.error.errors;
         })
     }
   }
-
-  htmlContent = "";
 
   config: AngularEditorConfig = {
     editable: true,
@@ -123,6 +129,14 @@ export class LevelFormComponent implements OnInit {
 
   print(event){
     console.log(event);
+  }
+
+  createBook(content: string, level: Level): Book{
+    var book = new Book();
+    book.content = content;
+    book.description = level.description;
+    book.level = level;
+    return book;
   }
 
 }
