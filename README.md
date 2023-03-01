@@ -2,7 +2,7 @@
 
 ---Projeto em desenvolvimento---
 
-Frontend Angular que cominuca com o backend library-backed via Rest (https://github.com/alexslopes/library)
+Frontend Angular que comunica com o backend library-backed via Rest (https://github.com/alexslopes/library)
 
 #Projeto Library Tem como finalidade fornecer uma plataforma voltado para cursos/instituições de ensino para disponibilizar seu conteúdo para os alunos.
 
