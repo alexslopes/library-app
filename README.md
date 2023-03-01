@@ -7,10 +7,13 @@ Frontend Angular que comunica com o backend library-backed via Rest (https://git
 #Projeto Library Tem como finalidade fornecer uma plataforma voltado para cursos/instituições de ensino para disponibilizar seu conteúdo para os alunos.
 
 Pré-requisitos
+
 Angular CLI 14.2.2.
+
 Node.js v16.17.1
 
 ##Execução 
+
 Com o node instalado, no terminal, executar o comando npm start
 
 #Ferramentas utilizadas
