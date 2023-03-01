@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
 import { LayoutComponent } from '../layout/layout.component';
+import { BookViewComponent } from './book-view/book-view.component';
 import { LevelFormComponent } from './level-form/level-form.component';
 import { LevelListComponent } from './level-list/level-list.component';
 
@@ -11,6 +12,7 @@ const routes: Routes = [
     { path: 'form' , component: LevelFormComponent},
     { path: 'form/:id' , component: LevelFormComponent},
     { path: 'lista' , component: LevelListComponent},
+    { path: 'book-view/:id' , component: BookViewComponent},
     { path: '' , redirectTo: '/level/lista', pathMatch: 'full'}
   ] }
 ];

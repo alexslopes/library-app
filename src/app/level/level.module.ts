@@ -11,12 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { BookViewComponent } from './book-view/book-view.component';
 
 
 @NgModule({
   declarations: [
     LevelListComponent,
-    LevelFormComponent
+    LevelFormComponent,
+    BookViewComponent
   ],
   imports: [
     CommonModule,

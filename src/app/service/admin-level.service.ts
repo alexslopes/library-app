@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Book } from '../level/book/book';
+import { Book } from '../level/book';
 import { Level } from '../level/level';
 import { LevelPage } from '../level/levelPage';
 

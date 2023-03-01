@@ -7,7 +7,7 @@ import { LevelService } from 'src/app/service/level.service';
 import { LanguageService } from 'src/app/service/language.service';
 import { Level } from '../level';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { Book } from '../book/book';
+import { Book } from '../book';
 
 @Component({
   selector: 'app-level-form',

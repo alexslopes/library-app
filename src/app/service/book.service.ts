@@ -3,18 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Book } from '../level/book';
-import { Level } from '../level/level';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LevelService {
+export class BookService {
 
-  apiURL: string = environment.apiURLBase + '/api/level';
+  apiURL: string = environment.apiURLBase + '/api/book';
 
   constructor(private http: HttpClient) { }
 
   getBookById(id: number): Observable<Book> {
-    return this.http.get<Book>(`${this.apiURL}/${id}`);
+    return this.http.get<Book>(this.apiURL + '/get-content/' + id);
   }
 }
