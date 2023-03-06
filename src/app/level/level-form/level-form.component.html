@@ -52,6 +52,6 @@
 
       <br/>
 
-      <angular-editor [(ngModel)]="htmlContent" [config]="config" name="htmlContent"></angular-editor>
+      <app-book-editor *ngIf="level.id"></app-book-editor>
   </form>
 </div>

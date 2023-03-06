@@ -22,7 +22,7 @@ export class BookViewComponent implements OnInit {
     let param = Number(routeParams.get('id'));
      this.bookService.getBookById(param).subscribe(
       response => {
-        this.content = response.content
+        //this.content = response.content
       }
      );
   }

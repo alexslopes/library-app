@@ -12,13 +12,15 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { BookViewComponent } from './book-view/book-view.component';
+import { BookEditorComponent } from './book-editor/book-editor.component';
 
 
 @NgModule({
   declarations: [
     LevelListComponent,
     LevelFormComponent,
-    BookViewComponent
+    BookViewComponent,
+    BookEditorComponent
   ],
   imports: [
     CommonModule,
