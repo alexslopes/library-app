@@ -14,6 +14,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { BookViewComponent } from './book-view/book-view.component';
 import { BookEditorComponent } from './book-editor/book-editor.component';
 
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { BookEditorComponent } from './book-editor/book-editor.component';
     MatSelectModule,
     BrowserAnimationsModule,
     AngularEditorModule,
-    NgSelectModule
+    NgSelectModule,
+    TabsModule.forRoot()
   ]
 })
 export class LevelModule { }
