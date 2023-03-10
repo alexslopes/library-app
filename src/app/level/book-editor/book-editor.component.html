@@ -1,7 +1,17 @@
 
 <div>
+
+  <button type="button" class="btn btn-primary btn-sm" (click)="addNewTab()">
+    Add new tab
+  </button>
+
   <tabset>
-    <tab (selectTab)="selectTab(tab)" *ngFor="let tab of chapters" [id]="'Tab '+tab" [heading]="'Capítulo ' + tab">
+    <tab  *ngFor="let tab of tabs"
+          [id]="'tab'+tab"
+          [heading]="tab.title"
+          [removable]="tab.removable"
+          (removed)="removeTab(tab)"
+          (selectTab)="selectTab(tab)">
       <angular-editor [(ngModel)]="htmlContent" [config]="config" name="htmlContent"></angular-editor>
     </tab>
 

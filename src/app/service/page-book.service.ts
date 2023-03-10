@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
 import { ChapterPageBook } from '../level/chapter-page-book';
 import { PageBook } from '../level/page-book';
+import { PageBookPages } from '../level/page-book-pages';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class PageBookService {
 
   constructor(private http: HttpClient) { }
 
-  list(idBook: number, chapter: number, page, size) : Observable<ChapterPageBook> {
+  getPageBook(idBook: number, chapter: number, page, size) : Observable<ChapterPageBook> {
     const params = new HttpParams()
     .set('page', page)
     .set('size', size);
@@ -28,5 +29,12 @@ export class PageBookService {
 
   update(pageBook: PageBook) {
     return this.http.put<void>(`${this.apiURLAdmin}`,pageBook);
+  }
+
+  getPagesByChapter(idBook: number, chapter: number, page, size) : Observable<PageBookPages> {
+    const params = new HttpParams()
+    .set('page', page)
+    .set('size', size);
+    return this.http.get<any>(`${this.apiURL+"/obter-paginas/" + idBook + "/" + chapter}?${params.toString()}`);
   }
 }
