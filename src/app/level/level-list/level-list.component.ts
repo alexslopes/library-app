@@ -3,6 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { AdminLevelService } from 'src/app/service/admin-level.service';
 import { Level } from '../level';
+import { LevelService } from 'src/app/service/level.service';
 
 @Component({
   selector: 'app-level-list',
@@ -21,7 +22,8 @@ export class LevelListComponent implements OnInit {
   tamanho: number;
 
   constructor(
-    private service: AdminLevelService,
+    private serviceAdmin: AdminLevelService,
+    private service: LevelService,
     private router: Router) {}
 
   ngOnInit(): void {
@@ -47,7 +49,7 @@ export class LevelListComponent implements OnInit {
   }
 
   deleteBook() {
-    this.service.delete(this.bookSelecionado).
+    this.serviceAdmin.delete(this.bookSelecionado).
     subscribe(
       response => {this.mensagemSucess = 'Módulo deletado com sucesso!'
       this.ngOnInit()

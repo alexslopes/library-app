@@ -15,13 +15,6 @@ export class AdminLevelService {
 
   constructor(private http: HttpClient) { }
 
-  list(page, size, id) : Observable<LevelPage> {
-    const params = new HttpParams()
-    .set('page', page)
-    .set('size', size);
-    return this.http.get<any>(`${this.apiURL+"/obter-modulo-por-idioma"}/${id}?${params.toString()}`);
-  }
-
   delete(level: Level) {
     return this.http.delete<any>(`${this.apiURL}/${level.id}`);
   }

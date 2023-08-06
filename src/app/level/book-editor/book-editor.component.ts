@@ -35,15 +35,7 @@ export class BookEditorComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.service.getPageBook(1, 1, 0, 1).subscribe(
-      response => {
-        this.chapterPageBook = response;
-        this.createTabs(this.chapterPageBook.chapters);
-        this.currentPage =  this.chapterPageBook.pages.content[0];
-        this.htmlContent =  this.currentPage?.content
-      }
-    )
-
+    //TODO: Obter livro por level
   }
 
   config: AngularEditorConfig = {
@@ -107,31 +99,6 @@ export class BookEditorComponent implements OnInit {
     }
   }
 
-  selectTab(tab: ITab) {
-    console.log(tab);
-    this.service.getPagesByChapter(1, tab.chapter, 0, 1).subscribe(
-      response => {
-        if(response.content[0]){
-          this.currentPage =  response.content[0];
-          this.htmlContent = response.content[0]?.content;
-        } else {
-          this.currentPage = {
-            id: null,
-            bookId: 1, //trocar depois de testar
-            chapter: tab.chapter,
-            pageIndex: 1,
-            content: ''
-          }
-
-          this.htmlContent = '';
-        }
-
-
-
-
-      }
-    )
-  }
 
   saveContent(content: string, currentPage: PageBook): void{
     let pageBook = new PageBook();
