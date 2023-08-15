@@ -2,6 +2,6 @@ import { Level } from "./level";
 
 export class Book {
   id: number;
-  level: Level
-  description: string;
+  levelId: number
+  content: string;
 }

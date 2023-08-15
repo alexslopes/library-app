@@ -2,10 +2,9 @@ import { NodeWithI18n } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { PageBookService } from 'src/app/service/page-book.service';
-import { ChapterPageBook } from '../chapter-page-book';
-import { PageBook } from '../page-book';
-import { PageBookPages } from '../page-book-pages';
+import { BookService } from 'src/app/service/book.service';
+import { ActivatedRoute } from '@angular/router';
+import { Book } from '../book';
 
 interface ITab {
   title: string;
@@ -27,15 +26,25 @@ export class BookEditorComponent implements OnInit {
   htmlContent: string = "";
   chapters: number[];
   tabs: ITab[] = new Array;
-  chapterPageBook: ChapterPageBook;
-  currentPage: PageBook = new PageBook();
-  @Input('bookId') bookId: number;
+  book: Book = new Book();
+  leveiId: number;
 
-  constructor(private service: PageBookService) { }
+  constructor(
+    private route: ActivatedRoute,  
+    private service: BookService
+    ) { }
 
   ngOnInit(): void {
 
-    //TODO: Obter livro por level
+    this.getLevel();
+  }
+  getLevel(): void {
+    this.leveiId = Number(this.route.snapshot.paramMap.get('id'));
+    this.service.getBookByLevelId(this.leveiId).subscribe( book => {
+      if(book){
+      this.book = book;
+      this.htmlContent = book.content}
+    });
   }
 
   config: AngularEditorConfig = {
@@ -67,54 +76,20 @@ export class BookEditorComponent implements OnInit {
     ]
   };
 
-  createTabs(chapters: number[]) {
-    for(let chapter of chapters) {
-      this.tabs.push({
-        title: `Capítulo ${chapter}`,
-        chapter: chapter,
-        removable: true
-      })
-    }
-  }
 
-  addNewTab(chapter?: number) {
-    let newTabIndex;
-    if(chapter){
-      newTabIndex = chapter;
-    }
-    newTabIndex = this.tabs.length + 1;
+  saveContent(content: string): void{
+    let book = new Book();
+    book.id = this.book.id
+    book.content = this.htmlContent;
+    book.levelId = this.leveiId;
 
-    this.tabs.push({
-      title: `Capítulo ${newTabIndex}`,
-      chapter: newTabIndex,
-      removable: true
-    })
-  }
-
-  removeTab(tab: ITab) {
-    let index = this.tabs.indexOf(tab);
-
-    if(index > -1) {
-      this.tabs.splice(index, 1);
-    }
-  }
-
-
-  saveContent(content: string, currentPage: PageBook): void{
-    let pageBook = new PageBook();
-    pageBook.bookId = 1 //substituir depois
-    pageBook.chapter = currentPage?.chapter;
-    pageBook.content = content;
-    pageBook.pageIndex = currentPage?.pageIndex;
-    pageBook.id = currentPage?.id;
-
-    if(pageBook.id){
-      this.service.update(pageBook).subscribe(
+    if(book.id){
+      this.service.update(book).subscribe(
         response => console.log(response)
       );
 
     } else {
-      this.service.save(pageBook).subscribe(
+      this.service.save(book).subscribe(
         response => console.log(response)
       );
     }

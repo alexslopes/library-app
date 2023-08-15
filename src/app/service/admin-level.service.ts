@@ -24,6 +24,6 @@ export class AdminLevelService {
   }
 
   atualizar(book: Book) : Observable<any> {
-    return this.http.put<Book>(`${this.apiURL}/${book.level.id}`,book);
+    return this.http.put<Book>(`${this.apiURL}/${book.levelId}`,book);
   }
 }

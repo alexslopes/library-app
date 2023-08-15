@@ -93,12 +93,4 @@ export class LevelFormComponent implements OnInit {
   print(event){
     console.log(event);
   }
-
-  createBook(content: string, level: Level): Book{
-    var book = new Book();
-    book.description = level.description;
-    book.level = level;
-    return book;
-  }
-
 }
