@@ -1,7 +1,17 @@
 
 <div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="success == true">
+          Livro salvo/atualizado com sucesso!
+        </div>
+        <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+          {{ error }}
+        </div>
+      </div>
+    </div>
 
-      <angular-editor [(ngModel)]="htmlContent" [config]="config" name="htmlContent"></angular-editor>
+    <angular-editor [(ngModel)]="htmlContent" [config]="config" name="htmlContent"></angular-editor>
 
 
     <button type="button" class="btn btn-primary" (click)="saveContent(this.htmlContent)">

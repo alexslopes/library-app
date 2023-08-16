@@ -28,6 +28,8 @@ export class BookEditorComponent implements OnInit {
   tabs: ITab[] = new Array;
   book: Book = new Book();
   leveiId: number;
+  success: boolean = false;
+  errors: String[];
 
   constructor(
     private route: ActivatedRoute,  
@@ -85,12 +87,23 @@ export class BookEditorComponent implements OnInit {
 
     if(book.id){
       this.service.update(book).subscribe(
-        response => console.log(response)
+        response => {
+          this.success = true;
+          this.errors = null;
+        }, errorResponse => {
+          this.errors = ['Erro ao atualizar o livro.']
+        }
       );
 
     } else {
       this.service.save(book).subscribe(
-        response => console.log(response)
+        (response) => {
+          this.success = true;
+          this.errors = null;
+        }, errorResponse => {
+          this.success = false;
+          this.errors = errorResponse.error.errors;
+        }
       );
     }
   }
